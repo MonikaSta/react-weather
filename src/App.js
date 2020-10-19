@@ -9,7 +9,7 @@ function App() {
       <div className="container">
       <Temperature defaultCity="Chicago"/>
       <footer>
-        <a href="https://github.com/MonikaSta/react-weather" target="_blank" rel="noopener noreferrer">Open-source code</a> by Monika Stasauskiene
+        <a href="https://github.com/MonikaSta/react-weather" target="_blank" rel="noopener noreferrer"> Open-source code</a> by Monika Stasauskiene
       </footer>
       </div>
     </div>
