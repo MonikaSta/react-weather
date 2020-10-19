@@ -1,16 +1,47 @@
 import React, { useState } from "react";
-import "./Temperature.css"
+import "./Temperature.css";
+import axios from "axios";
 
 
 export default function Temperature(props) {
-   // const[city, setCity] = useState(props.defaultCity);
-    //const[weather, useWeather] = useState({load:false});
-return (
+   const[city, setCity] = useState(props.defaultCity);
+   const[weather, setWeather] = useState({load:false});
+
+function showTemperature (response){
+    setWeather({
+        load:true,
+        temperature: Math.round(response.data.main.temp),
+        humidity: response.data.main.humidity,
+        wind: Math.round(response.data.wind.speed),
+        description: response.data.weather[0].description,
+        icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+        city: response.data.name
+    })
+
+}
+
+   function handleSearch(event){
+    event.preventDefault();
+    search();
+  }
+
+  function search(){
+    let apiKey = "980705a0ba4bf0987a707dd1c07fbc80";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(showTemperature);
+}
+
+function updateCity(event){
+    setCity(event.target.value);
+}
+if (weather.load) {
+    return (
     <div className="App">
       <div className="weatherApp">
         <div className="row">
           <div className="col-8">
-            <form id="search-form">
+            <form id="search-form" onSubmit={handleSearch}>
               <input
                 type="search"
                 className="form-control"
@@ -18,6 +49,7 @@ return (
                 autoFocus="on"
                 id="city-input"
                 placeholder="Search for a city..."
+                onChange={updateCity}
               />
             </form>
           </div>
@@ -28,21 +60,21 @@ return (
           </div>
         </div>
         <h1>
-          <div id="current-location"></div>
+          <div id="current-location">{weather.city}</div>
         </h1>
         <hr />
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <span id="display-date"></span>
+              <span id="display-date">Monday, Oct 19</span>
             </div>
             <div className="col-6">
-              <span id="display-time"></span>
+              <span id="display-time">14:43</span>
             </div>
           </div>
         </div>
         <div id="temperature">
-          <span id="current-temperature"></span>
+          <span id="current-temperature">{weather.temperature}</span>
           <span className="units">
             <a href="#" id="temperature-c" className="active">
               °C
@@ -53,7 +85,7 @@ return (
             </a>
           </span>
         </div>
-        <div id="description"></div>
+        <div id="description">{weather.description}</div>
         <div className="container" id="parameters">
           <div className="row">
             <div className="col-4">
@@ -62,13 +94,14 @@ return (
                 alt="humidity icon"
                 id="weather-icons"
               />
-              Humidity:
+              Humidity:<br />
+              {weather.humidity}%
               <div id="humidity"></div>
             </div>
             <div className="col-4 m-40">
               <img
                 id="icon"
-                src="https://upload.wikimedia.org/wikipedia/commons/4/48/BLANK_ICON.png"
+                src={weather.icon}
                 alt="weather"
               />
             </div>
@@ -78,7 +111,8 @@ return (
                 alt="wind icon"
                 id="weather-icons"
               />
-              Wind:
+              Wind:<br />
+              {weather.wind}km/h
               <div id="wind"></div>
             </div>
           </div>
@@ -86,4 +120,8 @@ return (
         <div className="row weather-forecast" id="forecast"></div>
       </div>
       </div>
-)}
+);
+}else{search();
+    return "Loading..."
+}
+}
