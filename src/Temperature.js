@@ -76,13 +76,11 @@ if (weather.load) {
         <div id="temperature">
           <span id="current-temperature">{weather.temperature}</span>
           <span className="units">
-            <a href="#" id="temperature-c" className="active">
               °C
-            </a>
             |
-            <a href="#" id="temperature-f" className="active">
+
               °F
-            </a>
+            
           </span>
         </div>
         <div id="description">{weather.description}</div>
