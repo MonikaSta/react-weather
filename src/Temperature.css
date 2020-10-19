@@ -1,0 +1,132 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.weather-forecast {
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+.weather-forecast h3 {
+  color: rgb(186, 186, 186);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  height: 15px;
+  line-height: 15px;
+  padding-top: 7px;
+  margin-left: 27px;
+}
+
+.weather-forecast img {
+  display: block;
+  margin: 0 auto;
+  margin-left: 25px;
+  height: 48px;
+  width: 48px;
+}
+
+.weather-forecast-temperature {
+  text-align: center;
+  color: rgb(135, 135, 135);
+  font-size: 13px;
+  font-weight: 400;
+  height: auto;
+  line-height: 15px;
+  white-space: nowrap;
+  margin-left: 25px;
+}
+.form-control {
+  width: 237px;
+  display: block;
+  margin: 0;
+}
+.weatherApp {
+  margin: 15px auto 10px auto;
+  background-image: linear-gradient(to bottom, #fff1eb 25%, #ace0f9 95%);
+  padding: 18px;
+  max-width: 390px;
+  height: 610px;
+  border: 0.5px solid #aeb2b8;
+  border-radius: 10px;
+  box-shadow: 0 3px 16px 0 gainsboro;
+}
+.codedBy {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.units {
+  position: relative;
+  font-size: 20px;
+  top: -56px;
+}
+
+.units .active {
+  color: rgb(37, 37, 37);
+  cursor: default;
+}
+
+.units .active:hover {
+  text-decoration: none;
+}
+.col-4 img {
+  height: 100px;
+  width: 100px;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#current-location {
+  vertical-align: top;
+  text-align: center;
+}
+#display-time {
+  margin-left: 80px;
+}
+#temperature {
+  font-size: 100px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+#description {
+  text-align: center;
+  position: relative;
+  margin-top: -10px;
+  font-style: italic;
+}
+
+#description::first-letter {
+  text-transform: capitalize;
+}
+#weather-icons {
+  height: 40px;
+  width: 41px;
+  font-weight: bold;
+  position: relative;
+}
+#parameters {
+  margin-top: 30px;
+  text-align: center;
+}
+#button {
+  display: block;
+  margin-left: 29px;
+}
+#icon {
+  position: relative;
+  margin-left: -10px;
+}
