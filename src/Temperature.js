@@ -14,20 +14,20 @@ function showTemperature (response){
         humidity: response.data.main.humidity,
         wind: Math.round(response.data.wind.speed),
         description: response.data.weather[0].description,
-        icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+        iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
         city: response.data.name
     })
-
+    
 }
 
-   function handleSearch(event){
+function handleSearch(event){
     event.preventDefault();
     search();
   }
 
   function search(){
-    let apiKey = "980705a0ba4bf0987a707dd1c07fbc80";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = "980705a0ba4bf0987a707dd1c07fbc80";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(showTemperature);
 }
@@ -99,8 +99,8 @@ if (weather.load) {
             <div className="col-4 m-40">
               <img
                 id="icon"
-                src={weather.icon}
-                alt="weather"
+                src={weather.iconUrl}
+                alt={weather.description}
               />
             </div>
             <div className="col-4">

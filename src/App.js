@@ -13,7 +13,7 @@ function App() {
         <a href="https://github.com/MonikaSta/react-weather" target="_blank" rel="noopener noreferrer"> Open-source code</a> by Monika Stasauskiene
       </footer>
       </div>
-    </div>
+      </div>
   );
 }
 
