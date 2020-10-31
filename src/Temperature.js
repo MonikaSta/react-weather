@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Temperature.css";
 import axios from "axios";
-import CurrentDate from "./CurrentDate";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Temperature(props) {
    const[city, setCity] = useState(props.defaultCity);
@@ -57,58 +57,10 @@ if (weather.load) {
           </div>
           <div className="col-4">
             <button type="button" className="btn btn-outline-light" id="button">
-              <i className="fas fa-location-arrow"></i>
             </button>
           </div>
-        </div>
-        <h1>
-          <div id="current-location">{weather.city}</div>
-        </h1>
-        <hr />
-           <CurrentDate date={weather.date} />
-        <div id="temperature">
-          <span id="current-temperature">{weather.temperature}</span>
-          <span className="units">
-              °C
-            |
-
-              °F
-            
-          </span>
-        </div>
-        <div id="description">{weather.description}</div>
-        <div className="container" id="parameters">
-          <div className="row">
-            <div className="col-4">
-              <img
-                src="https://static.thenounproject.com/png/1001987-200.png"
-                alt="humidity icon"
-                id="weather-icons"
-              />
-              Humidity:<br />
-              {weather.humidity}%
-              <div id="humidity"></div>
-            </div>
-            <div className="col-4 m-40">
-              <img
-                id="icon"
-                src={weather.iconUrl}
-                alt={weather.description}
-              />
-            </div>
-            <div className="col-4">
-              <img
-                src="https://img.icons8.com/ios/452/wind.png"
-                alt="wind icon"
-                id="weather-icons"
-              />
-              Wind:<br />
-              {weather.wind}km/h
-              <div id="wind"></div>
-            </div>
           </div>
-        </div>
-        <div className="row weather-forecast" id="forecast"></div>
+      <WeatherInfo data={weather} />
       </div>
       </div>
 );
