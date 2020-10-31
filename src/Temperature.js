@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./Temperature.css";
 import axios from "axios";
-
+import CurrentDate from "./CurrentDate";
 
 export default function Temperature(props) {
    const[city, setCity] = useState(props.defaultCity);
    const[weather, setWeather] = useState({load:false});
 
 function showTemperature (response){
+  console.log(response.data);
     setWeather({
         load:true,
         temperature: Math.round(response.data.main.temp),
@@ -15,7 +16,8 @@ function showTemperature (response){
         wind: Math.round(response.data.wind.speed),
         description: response.data.weather[0].description,
         iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-        city: response.data.name
+        city: response.data.name,
+        date: new Date(response.data.dt * 1000)
     })
     
 }
@@ -63,16 +65,7 @@ if (weather.load) {
           <div id="current-location">{weather.city}</div>
         </h1>
         <hr />
-        <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <span id="display-date">Monday, Oct 19</span>
-            </div>
-            <div className="col-6">
-              <span id="display-time">14:43</span>
-            </div>
-          </div>
-        </div>
+           <CurrentDate date={weather.date} />
         <div id="temperature">
           <span id="current-temperature">{weather.temperature}</span>
           <span className="units">
