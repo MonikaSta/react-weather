@@ -2,22 +2,23 @@ import React, { useState } from "react";
 import "./Temperature.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast"
 
 export default function Temperature(props) {
    const[city, setCity] = useState(props.defaultCity);
    const[weather, setWeather] = useState({load:false});
 
 function showTemperature (response){
-  console.log(response.data);
     setWeather({
         load:true,
         temperature: Math.round(response.data.main.temp),
         humidity: response.data.main.humidity,
         wind: Math.round(response.data.wind.speed),
         description: response.data.weather[0].description,
-        iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+        icon: response.data.weather[0].icon,
         city: response.data.name,
-        date: new Date(response.data.dt * 1000)
+        date: new Date(response.data.dt * 1000),
+        iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     })
     
 }
@@ -28,7 +29,7 @@ function handleSearch(event){
   }
 
   function search(){
-    const apiKey = "980705a0ba4bf0987a707dd1c07fbc80";
+    const apiKey = "5aceae49f44af75d3d4a49f0b46e516f";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(showTemperature);
@@ -55,12 +56,9 @@ if (weather.load) {
               />
             </form>
           </div>
-          <div className="col-4">
-            <button type="button" className="btn btn-outline-light" id="button">
-            </button>
-          </div>
           </div>
       <WeatherInfo data={weather} />
+      <WeatherForecast city={weather.city} />
       </div>
       </div>
 );

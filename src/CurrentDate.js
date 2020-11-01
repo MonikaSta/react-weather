@@ -3,7 +3,7 @@ import React from "react";
 export default function CurrentDate(props){
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug", "Sep", "Oct","Nov","Dec"]
-    let day = days [props.date.getDay()]
+    let day = days[props.date.getDay()]
     let dayOfTheMonth = props.date.getDate();
     let month = months[props.date.getMonth()]
     let hours = props.date.getHours();

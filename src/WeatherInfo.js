@@ -2,6 +2,7 @@ import React from "react";
 import CurrentDate from "./CurrentDate";
 import "./Temperature.css";
 import UnitsConverter from "./UnitsConverter";
+import "./WeatherInfo.css"
 
 export default function WeatherInfo(props){
 return (
@@ -11,8 +12,8 @@ return (
           <div id="current-location">{props.data.city}</div>
         </h1>
         <hr />
-           <CurrentDate date={props.data.date} />
-        <UnitsConverter celsius={props.data.temperature} />
+          <CurrentDate date={props.data.date} />
+          <UnitsConverter celsius={props.data.temperature} />
         <div id="description">{props.data.description}</div>
         <div className="container" id="parameters">
           <div className="row">
@@ -26,9 +27,9 @@ return (
               {props.data.humidity}%
               <div id="humidity"></div>
             </div>
-            <div className="col-4 m-40">
-              <img
-                id="icon"
+            <div className="col-4">
+            <img
+                id="main-icon"
                 src={props.data.iconUrl}
                 alt={props.data.description}
               />

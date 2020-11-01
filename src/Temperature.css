@@ -12,6 +12,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
 .weather-forecast {
   margin-top: 10px;
   margin-left: 25px;
@@ -55,14 +56,9 @@ a {
   margin: 15px auto 10px auto;
   background-image: linear-gradient(to bottom, #fff1eb 25%, #ace0f9 95%);
   padding: 18px;
-  height: 610px;
+  height: 629px;
   border: 0.5px solid #aeb2b8;
   border-radius: 10px;
-}
-.codedBy {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
 }
 .units {
   position: relative;
@@ -119,14 +115,18 @@ a {
   position: relative;
 }
 #parameters {
-  margin-top: 30px;
+  margin-top: 0px;
   text-align: center;
 }
-#button {
-  display: block;
-  margin-left: 29px;
-}
+
 #icon {
   position: relative;
-  margin-left: -10px;
+  margin-left: -14px;
+  height: 50px;
+  width: 50px;
+}
+
+#main-icon {
+  height: 150px;
+  width: 150px;
 }

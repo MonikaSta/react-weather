@@ -1,0 +1,10 @@
+.WeatherForecast {
+  text-align: center;
+}
+.WeatherForecast icon {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 10px;
+  left: 30px;
+}
